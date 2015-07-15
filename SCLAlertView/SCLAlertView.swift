@@ -378,7 +378,7 @@ public class SCLAlertView: UIViewController {
             viewText.text = subTitle
             // Adjust text view size, if necessary
             let str = subTitle as NSString
-            let attr = [NSFontAttributeName:viewText.font]
+            let attr = [NSFontAttributeName : viewText.font! as AnyObject]
             let sz = CGSize(width: kWindowWidth - 24, height:90)
             let r = str.boundingRectWithSize(sz, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes:attr, context:nil)
             let ht = ceil(r.size.height)
@@ -510,13 +510,13 @@ class SCLAlertViewStyleKit : NSObject {
 
     class func drawCross() {
         // Cross Shape Drawing
-        var crossShapePath = UIBezierPath()
+        let crossShapePath = UIBezierPath()
         crossShapePath.moveToPoint(CGPointMake(10, 70))
         crossShapePath.addLineToPoint(CGPointMake(70, 10))
         crossShapePath.moveToPoint(CGPointMake(10, 10))
         crossShapePath.addLineToPoint(CGPointMake(70, 70))
-        crossShapePath.lineCapStyle = kCGLineCapRound;
-        crossShapePath.lineJoinStyle = kCGLineJoinRound;
+        crossShapePath.lineCapStyle = CGLineCap.Round
+        crossShapePath.lineJoinStyle = CGLineJoin.Round
         UIColor.whiteColor().setStroke()
         crossShapePath.lineWidth = 14
         crossShapePath.stroke()
