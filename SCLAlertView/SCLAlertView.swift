@@ -60,6 +60,10 @@ public class SCLAlertViewResponder {
     public func close() {
         self.alertview.hideView()
     }
+    
+    public func also(closure: (SCLAlertView) -> (Void)) {
+        closure(self.alertview)
+    }
 }
 
 let kCircleHeightBackground: CGFloat = 62.0
